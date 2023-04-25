@@ -61,7 +61,7 @@ export default function AgeCalculator() {
       const months = parseInt(String(inputMonth)); // convert to string and then to number
 
       if (!Number.isNaN(years) && !Number.isNaN(months)) {
-        // if the input is a number
+        // if the input is a number then call the function that calculates the age
         setResultDate(substractDate(inputDay, months, years)); // call the function that calculates the age
       } else {
         setResultDate({

@@ -1,11 +1,5 @@
 import styled from 'styled-components';
 
-declare module 'styled-components' {
-  export interface DefaultTheme {
-    error: string;
-  }
-}
-
 const StyledLabel = styled.label<{ error?: boolean }>`
   text-transform: uppercase;
   font-size: 14px;
@@ -56,7 +50,7 @@ const Error = styled.p`
 `;
 
 interface InputProps {
-  error?: boolean;
+  error?: any;
   title: string;
   placeholder: string;
   giveData: (data: string) => void;
