@@ -30,7 +30,7 @@ const Button = styled.button<{ isDisabled: boolean }>`
 
 interface ButtonProps {
   handleClick: () => void;
-  isDisabled: boolean;
+  isDisabled: boolean | any;
 }
 
 function StyledButton({ handleClick, isDisabled }: ButtonProps): JSX.Element {

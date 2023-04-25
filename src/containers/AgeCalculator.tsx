@@ -141,7 +141,14 @@ export default function AgeCalculator() {
       <StyledDiv>
         <StyledButton
           handleClick={handleClick}
-          isDisabled={!inputDay || !inputMonth || !inputYear}
+          isDisabled={
+            !inputDay ||
+            !inputMonth ||
+            !inputYear ||
+            dayError ||
+            monthError ||
+            yearError
+          }
         />
       </StyledDiv>
       <Text num={displayYear || Number(resultDate.years)} text="years" />{' '}
