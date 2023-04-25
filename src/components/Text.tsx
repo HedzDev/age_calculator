@@ -2,6 +2,7 @@ import styled from 'styled-components';
 
 const StyledNum = styled.span`
   color: var(--purple);
+  font-weight: bold;
 `;
 
 const StyledText = styled.h1`

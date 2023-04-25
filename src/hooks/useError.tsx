@@ -24,29 +24,19 @@ export default function useError(
     // useEffect hook that controls the errors of the input fields
     // Control day
     setDayError(
-      !inputDay
-        ? 'This field is required'
-        : inputDay < 1 || inputDay > 31
-        ? 'Must be a valid day'
-        : null
+      inputDay && (inputDay < 1 || inputDay > 31) ? 'Must be a valid day' : null
     );
 
     // Control month
     setMonthError(
-      !inputMonth
-        ? 'This field is required'
-        : inputMonth < 1 || inputMonth > 12
+      inputMonth && (inputMonth < 1 || inputMonth > 12)
         ? 'Must be a valid month'
         : null
     );
 
     // Control year
     setYearError(
-      !inputYear
-        ? 'This field is required'
-        : inputYear > actualYear
-        ? 'Must be in the past'
-        : null
+      inputYear && inputYear > actualYear ? 'Must be in the past' : null
     );
   }, [inputDay, inputMonth, inputYear, actualYear]); // the useEffect hook will be called when the inputDay, inputMonth, inputYear or actualYear changes
 
