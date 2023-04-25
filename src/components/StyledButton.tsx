@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-const Button = styled.button`
+const Button = styled.button<{ isDisabled: boolean }>`
   width: 96px;
   height: 96px;
   border-radius: 50%;
@@ -20,15 +20,28 @@ const Button = styled.button`
     width: 64px;
     height: 64px;
   }
+  ${({ isDisabled }) =>
+    isDisabled &&
+    `
+    opacity: 0.5;
+    cursor: not-allowed;
+  `}
 `;
 
 interface ButtonProps {
   handleClick: () => void;
+  isDisabled: boolean;
 }
 
-function StyledButton({ handleClick }: ButtonProps): JSX.Element {
+function StyledButton({ handleClick, isDisabled }: ButtonProps): JSX.Element {
+  const handleClickWrapper = () => {
+    // this is the wrapper function that checks if the button is disabled or not
+    if (!isDisabled) {
+      handleClick();
+    }
+  };
   return (
-    <Button onClick={handleClick}>
+    <Button onClick={handleClickWrapper} isDisabled={isDisabled}>
       <img
         src="/icon-arrow.svg"
         style={{ width: '100%', height: 'auto' }}
